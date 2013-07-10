@@ -5,10 +5,6 @@
 
 #import "AHTTPRequest.h"
 
-@protocol AHTTPRequestAsyncDelegate <NSObject>
-- (void)connectionEnded:(AHTTPRequest*)request;
-@end
-
 @implementation AHTTPRequest
 static NSURLRequest* _theRequest = nil;
 

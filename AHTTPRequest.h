@@ -5,6 +5,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
+@protocol AHTTPRequestAsyncDelegate <NSObject>
+- (void)connectionEnded:(AHTTPRequest*)request;
+@end
+
 @interface AHTTPRequest : NSMutableURLRequest
 
 @property (nonatomic) NSDictionary *responseHeaders;
@@ -19,6 +24,6 @@
 -(void)setHTTPBodyWithDictionary:(NSDictionary*)bodyDictionary;
 
 -(void)executeRequest;
--(void)executeRequestAsync;
+-(void)executeRequestAsync:(id<AHTTPRequestAsyncDelegate>)delegate;
 
 @end
